@@ -9,7 +9,7 @@ const Product = ({product}) => {
                 <Card.Img src={product.image} />
             </Link>
             <Card.Body>
-                <Link to ={`/product/${product._id}`}>   {/* If <a is used then refresh, better to use LINK*/}
+                <Link to ={`/product/${product._id}`}>   {/* If <a is used then refresh, better to use LINK, I can refer to this ID with Match, as in the ProductSreen Compnent*/}
             <Card.Title as='div'><strong>{product.name}</strong></Card.Title>
                     </Link>
                  <Card.Text as='div'> 

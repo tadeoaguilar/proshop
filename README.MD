@@ -20,3 +20,9 @@ use Awesome fonts para poner el icono del carrito y el usuario
 Copias el Link y lo pegamos en public/index.html
 https://cdnjs.com/libraries/font-awesome
 
+
+TUve que meter esto dentro de Front End
+ npm i react-router-dom react-router-bootstrap
+
+ 
+
