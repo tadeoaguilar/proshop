@@ -8,7 +8,7 @@ const ProductScreen = ({match}) => {
     const [product,setProduct] = useState({})
     useEffect(() => {
         const fetchProduct= async () => {
-            const {data} = await axios.get(`/products/${match.params.id}`)   /* data has been reconstructed by using {data} i am extratcting the data portion of res.data */
+            const {data} = await axios.get(`api/products/${match.params.id}`)   /* data has been reconstructed by using {data} i am extratcting the data portion of res.data */
             setProduct(data)  /* data has been reconstructed by using {data} i am extratcting the data portion of res.data */
         }
 

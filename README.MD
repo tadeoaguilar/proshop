@@ -60,3 +60,61 @@ Agregar al package json
 
 npm run dev
 
+DOTENV
+
+in root install
+npm i dotenv
+
+
+
+Mongo: Connect through compass
+
+mongodb://root:example@127.0.0.1:27017/proshop
+
+
+connect to mongo 
+
+from Docker
+mongo -u root -p example
+
+
+use proshop
+db.createUser(
+  {
+    user: "root",
+    pwd: "example",
+    roles: [
+       
+       { role: "readWrite", db: "proshop" }
+    ]
+  }
+)
+
+##Colors
+npm i colors
+
+Crypt
+npm i bcryptjs
+
+
+to run Seeding 
+npm run data:import
+npm run data:destroy
+
+
+
+asyncHandler, Wrapper to hanndle errors in async functions
+npm i express-async-handler
+
+
+REDUX
+
+-Instalar en el Frontend Folder
+npm i redux react-redux redux-thunk redux-devtools-extension 
+
+
+1. Creo Storage
+2. Creo Reducer
+3. Creo Constantes
+4. Creo Actions
+  
