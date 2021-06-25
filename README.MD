@@ -118,3 +118,11 @@ npm i redux react-redux redux-thunk redux-devtools-extension
 3. Creo Constantes
 4. Creo Actions
   
+
+
+
+  1. Creo Constante
+  2. Creo Reducer
+  3. Agrego Reducer al store
+  4. Agrego mis Acciones
+  5. Modifico el Compnente

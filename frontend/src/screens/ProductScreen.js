@@ -1,22 +1,44 @@
 import React, {useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import {Row, Col, Image, ListGroup, Card, Button} from 'react-bootstrap'
+import {Row, Col, Image, ListGroup, Card, Button,Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
-import axios from 'axios'
+import  {useDispatch,useSelector} from 'react-redux'
+//import axios from 'axios'
+import { listProductDetails } from '../actions/productsActions'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
+const ProductScreen = ({history, match}) => {
 
-const ProductScreen = ({match}) => {
-    const [product,setProduct] = useState({})
+    const [qty,setQty] = useState(0)
+   // const [product,setProduct] = useState({})
+    const dispatch = useDispatch()
+    const productDetails = useSelector(state=> state.productDetails)
+    console.log(productDetails)
+    const {loading,error,product} = productDetails
+
     useEffect(() => {
-        const fetchProduct= async () => {
-            const {data} = await axios.get(`api/products/${match.params.id}`)   /* data has been reconstructed by using {data} i am extratcting the data portion of res.data */
-            setProduct(data)  /* data has been reconstructed by using {data} i am extratcting the data portion of res.data */
-        }
+        dispatch(listProductDetails(match.params.id))
+      //  const fetchProduct= async () => {
+        //    const {data} = await axios.get(`api/products/${match.params.id}`)   /* data has been reconstructed by using {data} i am extratcting the data portion of res.data */
+         //   setProduct(data)  /* data has been reconstructed by using {data} i am extratcting the data portion of res.data */
+       // }
 
-        fetchProduct()
-    },[match])
-    return <>  
-            <Link className = 'btn btn-dark my-3' to='/' >Go Back</Link>
-            <Row>
+        //fetchProduct()
+
+
+    },[dispatch,match])
+
+    const addToCartHandler = () => {
+        history.push(`/cart/${match.params.id}?qty=${qty}`)   //to navigate to another route
+    }
+    
+    return (
+            <>  
+            <Link className = 'btn btn-dark my-3' to='/' >
+                Go Back
+            </Link>
+            {loading ? <Loader/> : error ? <Message variant='danger'> {error}</Message> : (
+                <Row>
                 <Col md={5}>
                     <Image src={product.image} alt={product.name} fluid/>
                 </Col>
@@ -58,15 +80,46 @@ const ProductScreen = ({match}) => {
                             </Col>
                         </Row>
                     </ListGroup.Item>
+                       
+                        {product.countInStock > 0 ? (
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col> Qty </Col>
+                                    <Col>   
+                                        <Form.Control as ='select' value ={qty} onChange={(e)=>
+                                        setQty(e.target.value)}>
+                                      {[...Array(product.countInStock).keys()].map(x => (
+                                            <option key={x + 1} value={x + 1}  >
+                                                {x+1}
+
+                                            </option>
+                                        ))}
+                                        </Form.Control>
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item> 
+
+
+
+                        ):''}
                     <ListGroup.Item>
-                        <Button className='btn-block' type='button' disabled = {product.countInStock === 0 }> Add to Cart</Button>
+                        <Button 
+                            onClick= {addToCartHandler}
+                            className='btn-block' 
+                            type='button' disabled = {product.countInStock === 0 }
+                        > 
+                            
+                                Add to Cart
+                        </Button>
                     </ListGroup.Item>
                 </Card>
             </Col>
             </Row>
+            ) }
+            
     </>
     
     
-}
-
+    )
+            }
 export default ProductScreen

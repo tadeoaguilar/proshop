@@ -3,13 +3,23 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { computeStyles } from '@popperjs/core'
 import { create } from 'istanbul-reports'
-import {productListReducer} from './reducer/productReducers.js'
+import {productListReducer,productDetailsReducer} from './reducer/productReducers.js'
+import {cartReducer} from './reducer/cartReducers.js'
 
 const reducer = combineReducers({
     productList: productListReducer,
+    productDetails: productDetailsReducer,
+    cart: cartReducer
 
 })   //Accepts an Object as a reducer
-const initialState = {}
+
+const cartItemsFromStorage = localStorage.getItem('cartItems')? JSON.parse(localStorage.getItem('cartItems')):[] 
+
+
+const initialState = {
+
+    cart: {cartItems: cartItemsFromStorage }
+}
 const middleware= [thunk]
 
 const store = createStore(

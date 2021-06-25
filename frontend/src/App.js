@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import ProductScreen from './screens/ProductScreen'
+import CartScreen from './screens/CartScreen'
 const  App = () =>  {
   return (
     <Router>
@@ -11,7 +12,8 @@ const  App = () =>  {
       <main className= 'py-3'>
         <Container>
           <Route path='/' component={HomeScreen} exact/>
-          <Route path='/:id' component={ProductScreen} />
+          <Route path='/product/:id' component={ProductScreen} />
+          <Route path='/cart/:id?' component={CartScreen} />   {/*id? hace que un parametro sea opcional */}
         </Container>
       </main>
       <Footer />

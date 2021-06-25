@@ -14,7 +14,7 @@ const HomeScreen = () => {
    // const [products, setProducts] = useState([])
     const dispatch= useDispatch()
     const productList = useSelector((state) => {
-    console.log(state)
+   // console.log(state)
       return  state.productList 
     }) 
        // productList es el mismo nombre de mi store 
@@ -36,14 +36,14 @@ useEffect(()=> {
     return (
         <>
           <h1> Latest Products</h1>  
-          {loading ? <Loader/> : error? <Message variant='danger'>{error}</Message> :  <Row> 
+          {loading ? (<Loader/>) : error? <Message variant='danger'   > {error} </Message> : ( <Row> 
             {products.map((product) =>   (
                 <Col sm={12} md={6} lg={4} xl={3} >
                     <Product product = {product} />
                  </Col>  
         
             ))}
-        </Row>}
+        </Row>)}
 
         </>
     )
