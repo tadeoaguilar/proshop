@@ -126,3 +126,9 @@ npm i redux react-redux redux-thunk redux-devtools-extension
   3. Agrego Reducer al store
   4. Agrego mis Acciones
   5. Modifico el Compnente
+
+
+
+[match, location, history]
+
+https://www.freecodecamp.org/news/hitchhikers-guide-to-react-router-v4-4b12e369d10/
