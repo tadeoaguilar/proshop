@@ -5,21 +5,25 @@ import { computeStyles } from '@popperjs/core'
 import { create } from 'istanbul-reports'
 import {productListReducer,productDetailsReducer} from './reducer/productReducers.js'
 import {cartReducer} from './reducer/cartReducers.js'
+import {userLoginReducer} from './reducer/userReducers'
 
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    userLogin: userLoginReducer
 
 })   //Accepts an Object as a reducer
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')? JSON.parse(localStorage.getItem('cartItems')):[] 
+const userInfoFromStorage = localStorage.getItem('userInfo')? JSON.parse(localStorage.getItem('userInfo')):null
 
-console.log('ls')
-console.log(cartItemsFromStorage)
+
+
 const initialState = {
 
-    cart: {cartItems: cartItemsFromStorage }
+    cart: {cartItems: cartItemsFromStorage },
+    userLogin : {userInfo: userInfoFromStorage}
 }
 const middleware= [thunk]
 
