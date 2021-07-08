@@ -4,12 +4,13 @@ import dotenv  from 'dotenv'
 import connectDB from './config/db.js'
 import colors from 'colors'
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 import {notFound, errorHandler} from './middleware/errorMiddleware.js'
 const app =express()
 
 dotenv.config()
 connectDB()
-
+app.use(express.json()) //to read JSON from body
 app.use((req,res,next) => {
     console.log("Middleware example")
     console.log(req.originalUrl)
@@ -20,6 +21,7 @@ app.get('/',(req,res)   => {
 
 })
 app.use('/api/products',productRoutes)
+app.use('/api/users',userRoutes)
 
 app.use(notFound )
 app.use(errorHandler)
