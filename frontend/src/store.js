@@ -5,7 +5,7 @@ import { computeStyles } from '@popperjs/core'
 import { create } from 'istanbul-reports'
 import {productListReducer,productDetailsReducer} from './reducer/productReducers.js'
 import {cartReducer} from './reducer/cartReducers.js'
-import {userLoginReducer, userRegisterReducer} from './reducer/userReducers'
+import {userLoginReducer, userRegisterReducer,userDetailsReducer} from './reducer/userReducers'
 
 
 const reducer = combineReducers({
@@ -13,8 +13,8 @@ const reducer = combineReducers({
     productDetails: productDetailsReducer,
     cart: cartReducer,
     userLogin: userLoginReducer,
-    userRegister: userRegisterReducer
-
+    userRegister: userRegisterReducer,
+    userDetails: userDetailsReducer
 })   //Accepts an Object as a reducer
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')? JSON.parse(localStorage.getItem('cartItems')):[] 
