@@ -5,13 +5,15 @@ import { computeStyles } from '@popperjs/core'
 import { create } from 'istanbul-reports'
 import {productListReducer,productDetailsReducer} from './reducer/productReducers.js'
 import {cartReducer} from './reducer/cartReducers.js'
-import {userLoginReducer} from './reducer/userReducers'
+import {userLoginReducer, userRegisterReducer} from './reducer/userReducers'
+
 
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
-    userLogin: userLoginReducer
+    userLogin: userLoginReducer,
+    userRegister: userRegisterReducer
 
 })   //Accepts an Object as a reducer
 
