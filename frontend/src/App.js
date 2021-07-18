@@ -7,6 +7,10 @@ import ProductScreen from './screens/ProductScreen'
 import CartScreen from './screens/CartScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
+import ProfileScreen from './screens/ProfileScreen'
+import ShippingScreen from './screens/ShippingScreen'
+import PaymentScreen from './screens/PaymentScreen'
+import PlaceOrderScreen from './screens/PlaceOrderScreen'
 const  App = () =>  {
   return (
     <Router>
@@ -14,10 +18,17 @@ const  App = () =>  {
       <main className= 'py-3'>
         <Container>
           <Route path='/login' component={LoginScreen} />
+          <Route path='/shipping' component={ShippingScreen} />
+          <Route path='/placeorder' component={PlaceOrderScreen} />
+          <Route path='/payment' component={PaymentScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/' component={HomeScreen} exact/>
+          <Route path='/profile' component={ProfileScreen} />
           <Route path='/product/:id' component={ProductScreen} />
+          
           <Route path='/cart/:id?' component={CartScreen} />   {/*id? hace que un parametro sea opcional */}
+
+
         </Container>
       </main>
       <Footer />
