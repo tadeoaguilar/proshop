@@ -12,7 +12,7 @@ const addOrderItems = asyncHandler(async(req,res) => {
        paymentMethod, 
        itemsPrice, 
        taxPrice, 
-       shippingPrice,} = req.body
+       shippingPrice,totalPrice} = req.body
 
 
 console.log(req.body)
@@ -30,7 +30,7 @@ if (orderItems&&orderItems.length === 0) {
         itemsPrice, 
         taxPrice, 
         shippingPrice,
-
+        totalPrice
     })
     const createdOrder = await order.save()
     res.status(201).json(createdOrder)
@@ -38,6 +38,54 @@ if (orderItems&&orderItems.length === 0) {
 
 })
 
+
+
+// @desc: Get  Order by Id
+// @route: POST /api/orders/:id
+// @access Private
+const getOrderbyId = asyncHandler(async(req,res) => {
+    const order = await Order.findById(req.params.id).populate('user','name email')
+
+    if (order) {
+        res.json(order)
+    }else{
+        res.status(404)
+        throw new Error('Order not found')
+    }
+
+
+ })
+
+ // @desc: Update order to paid
+// @route: GET /api/orders/:id/pay
+// @access Private
+ const updateOrderById = asyncHandler(async(req,res) => {
+    const order = await Order.findById(req.params.id)
+
+    if (order) {
+        order.isPaid = true
+        order.paidAt = Date.now()
+        order.paymentResult={
+            id: req.body.id,
+            status: req.body.status,
+            update_time: req.body.update_time,
+            email_address: req.body.payer.email_address
+        }
+
+    const updatedOrder = await order.save()
+    res.json(updatedOrder)
+    }else{
+        res.status(404)
+        throw new Error('Order not found')
+    }
+
+
+ })
 export {
     addOrderItems,
+    getOrderbyId,
+    updateOrderById,
 }
+
+
+
