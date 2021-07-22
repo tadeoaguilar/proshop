@@ -6,7 +6,7 @@ import { create } from 'istanbul-reports'
 import {productListReducer,productDetailsReducer} from './reducer/productReducers.js'
 import {cartReducer} from './reducer/cartReducers.js'
 import {userLoginReducer, userRegisterReducer,userDetailsReducer,userUpdateProfileReducer} from './reducer/userReducers'
-import { orderCreateReducer,orderDetailsReducer } from './reducer/orderReducers.js'
+import { orderCreateReducer,orderDetailsReducer,orderListMyReducer,orderPayReducer } from './reducer/orderReducers.js'
 
 const reducer = combineReducers({
     productList: productListReducer,
@@ -18,6 +18,8 @@ const reducer = combineReducers({
     userUpdateProfile: userUpdateProfileReducer,
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
+    orderPay: orderPayReducer,
+    orderMyList: orderListMyReducer
     
     //shippingAddress:
 })   //Accepts an Object as a reducer

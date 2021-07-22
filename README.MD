@@ -139,3 +139,31 @@ https://www.freecodecamp.org/news/hitchhikers-guide-to-react-router-v4-4b12e369d
 JWT
 npm install jsonwebtoken
 
+
+
+
+
+PAYPAL
+
+sb-ocvrx6830440@business.example.com
+
+AXMOMdWhK_A0sU0Jg2c_6X7RRlcwRgbbo_p6BFzae8BpGnNG6A4GtlUumqPkDlBAS0oabeeOiF066EJw
+sECRET
+
+EJzruAUPoZRJfAIo8FGuHmwlSdDt_Pn0eJaWCB5JUNo7A5m4AxDKNSCsJz54PThZH0koRRCLW6N1yMFP
+
+Paypal SDK script
+
+https://developer.paypal.com/docs/platforms/checkout/reference/javascript-sdk/
+
+
+install paypal button
+
+https://www.npmjs.com/package/react-paypal-button-v2
+
+in the Frontend
+npm install react-paypal-button-v2 --save
+
+
+
+
