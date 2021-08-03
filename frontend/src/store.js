@@ -3,9 +3,9 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { computeStyles } from '@popperjs/core'
 import { create } from 'istanbul-reports'
-import {productListReducer,productDetailsReducer} from './reducer/productReducers.js'
+import {productListReducer,productDetailsReducer,productDeleteReducer} from './reducer/productReducers.js'
 import {cartReducer} from './reducer/cartReducers.js'
-import {userLoginReducer, userRegisterReducer,userDetailsReducer,userUpdateProfileReducer} from './reducer/userReducers'
+import {userLoginReducer, userRegisterReducer,userDetailsReducer,userUpdateProfileReducer,userUpdateReducer, userListReducer,userDeleteReducer} from './reducer/userReducers'
 import { orderCreateReducer,orderDetailsReducer,orderListMyReducer,orderPayReducer } from './reducer/orderReducers.js'
 
 const reducer = combineReducers({
@@ -19,8 +19,11 @@ const reducer = combineReducers({
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
-    orderMyList: orderListMyReducer
-    
+    orderMyList: orderListMyReducer,
+    userList: userListReducer,
+    userDelete: userDeleteReducer,
+    userUpdate: userUpdateReducer,
+    productDelete: productDeleteReducer
     //shippingAddress:
 })   //Accepts an Object as a reducer
 

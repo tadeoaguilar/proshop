@@ -14,7 +14,8 @@ connectDB()
 app.use(express.json()) //to read JSON from body
 app.use((req,res,next) => {
    // console.log("Middleware example")
-    //console.log(req.originalUrl)
+    console.log(req.originalUrl)
+    console.log(req.method)
     next()
 })
 app.get('/',(req,res)   => {
