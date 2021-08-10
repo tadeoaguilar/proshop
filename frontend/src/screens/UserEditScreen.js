@@ -1,9 +1,9 @@
 import React, {useEffect,useState} from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch,useSelector} from 'react-redux'
 import FormContainer from '../components/FormContainer'
-import {register} from '../actions/userActions'
+
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import {getUserDetails,updateUser} from '../actions/userActions'
@@ -18,7 +18,7 @@ const UserEditScreen = ({match,history}) => {
     const {loading,error,user} = userDetails
 
     const userUpdate = useSelector(state => state.userUpdate)
-    const {loading: loadingUpdate,error: errorUpdate,success: successUpdate} = userDetails
+    const {loading: loadingUpdate,error: errorUpdate,success: successUpdate} = userUpdate
 
 
     useEffect(()=>{

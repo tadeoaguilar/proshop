@@ -165,5 +165,7 @@ in the Frontend
 npm install react-paypal-button-v2 --save
 
 
+To store files, use multer
 
+npm i multer
 

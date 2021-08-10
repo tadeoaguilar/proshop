@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react'
-import { Link, Redirect } from 'react-router-dom'
+
 import { LinkContainer } from 'react-router-bootstrap'
-import {Form, Button, Row, Col, Table} from 'react-bootstrap'
+import { Button, Table} from 'react-bootstrap'
 import {useDispatch,useSelector} from 'react-redux'
-import FormContainer from '../components/FormContainer'
-import {listUsers, register} from '../actions/userActions'
+
+import {listUsers} from '../actions/userActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import {deleteUser} from '../actions/userActions'

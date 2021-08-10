@@ -1,9 +1,8 @@
 import { createStore,combineReducers,applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import { computeStyles } from '@popperjs/core'
-import { create } from 'istanbul-reports'
-import {productListReducer,productDetailsReducer,productDeleteReducer} from './reducer/productReducers.js'
+
+import {productListReducer,productDetailsReducer,productDeleteReducer, productCreateReducer,productUpdateReducer} from './reducer/productReducers.js'
 import {cartReducer} from './reducer/cartReducers.js'
 import {userLoginReducer, userRegisterReducer,userDetailsReducer,userUpdateProfileReducer,userUpdateReducer, userListReducer,userDeleteReducer} from './reducer/userReducers'
 import { orderCreateReducer,orderDetailsReducer,orderListMyReducer,orderPayReducer } from './reducer/orderReducers.js'
@@ -23,7 +22,9 @@ const reducer = combineReducers({
     userList: userListReducer,
     userDelete: userDeleteReducer,
     userUpdate: userUpdateReducer,
-    productDelete: productDeleteReducer
+    productDelete: productDeleteReducer,
+    productCreate: productCreateReducer,
+    productUpdate: productUpdateReducer
     //shippingAddress:
 })   //Accepts an Object as a reducer
 
