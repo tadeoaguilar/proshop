@@ -45,30 +45,33 @@ const ProductEditScreen = ({match,history}) => {
         }
 
         
-    },[dispatch,product,productId,history.productId,successUpdate])
+    },[dispatch,product,productId,history,successUpdate])
     
-    const uploadFileHandler = async(e) => {
+    const uploadFileHandler = async (e) => {
         const file = e.target.files[0]
-        const formData =  new FormData ()
-        formData.append('image',file)
-        setUploading (true)
+        const formData = new FormData()
+        formData.append('image', file)
+        setUploading(true)
+    
         try {
-            const config = {
-                headers:{
-                    'Content-type':'multipart/form-data'
-                }
-            }
-            const {data} = await axios.post('/api/upload',formData, config)
-            setImage(data)
-            setUploading(false)
+          const config = {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+    
+          const { data } = await axios.post('/api/upload', formData, config)
+    
+          setImage(data)
+          setUploading(false)
         } catch (error) {
-            console.error(error)
-            setUploading(false)
-            
+          console.error(error)
+          setUploading(false)
         }
-    }
+      }
     
     const submitHandler = (e) => {
+        console.log(`Submit:${image}`)
         e.preventDefault()
    dispatch(updateProduct({
        _id: productId,

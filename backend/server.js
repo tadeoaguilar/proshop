@@ -31,8 +31,8 @@ app.use('/api/config/paypal', (req,res) =>{
 } )
 app.use('/api/upload',uploadRoutes)
 //to make image upload folder statis and accessible 
-const __dirname= path.resolve()
-app.use('/uploads',express.static(path.join(__dirname,'/uploads')))
+const __dirname = path.resolve()
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 app.use(notFound )
 app.use(errorHandler)
 

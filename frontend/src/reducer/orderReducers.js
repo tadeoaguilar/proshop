@@ -11,7 +11,13 @@ import {ORDER_CREATE_FAIL,
         ORDER_LIST_MY_FAIL,
         ORDER_LIST_MY_REQUEST,
         ORDER_LIST_MY_SUCCESS,
-        ORDER_LIST_MY_RESET} 
+        ORDER_LIST_MY_RESET,
+        ORDER_LIST_REQUEST,
+        ORDER_LIST_SUCCESS,
+        ORDER_LIST_FAIL,
+        ORDER_DELIVERED_REQUEST,
+        ORDER_DELIVERED_SUCCESS,
+        ORDER_DELIVERED_FAIL} 
         from '../constants/orderConstants.js'
 
 export const orderCreateReducer = ( state = {} , action) =>{
@@ -100,7 +106,32 @@ export const orderPayReducer = ( state = {} , action) =>{
 
 
 }
+export const orderDeliveredReducer = ( state = {} , action) =>{
+    switch (action.type) {
+        case ORDER_DELIVERED_REQUEST:
+            return {
+                loading:true
+            }
+        case ORDER_DELIVERED_SUCCESS:
+                return {
+                    
+                 
+                }
+        case ORDER_DELIVERED_FAIL:
+                return {
+                    loading: false,
+                   
+                    error: action.payload
+                }
+        
+        default:
+           return state
 
+    }
+
+
+
+}
 export const orderListMyReducer = ( state = { orders:[]} , action) =>{
     switch (action.type) {
         case ORDER_LIST_MY_REQUEST:
@@ -123,6 +154,34 @@ export const orderListMyReducer = ( state = { orders:[]} , action) =>{
             return {
                orders: []
             }
+        default:
+           return state
+
+    }
+
+
+
+}
+
+export const orderListReducer = ( state = { orders:[]} , action) =>{
+    switch (action.type) {
+        case ORDER_LIST_REQUEST:
+            return {
+                loading:true
+            }
+        case ORDER_LIST_SUCCESS:
+                return {
+                    loading: false,
+                    orders:action.payload
+                }
+
+        case ORDER_LIST_FAIL:
+                return {
+                    loading: false,
+                   
+                    error: action.payload
+                }
+        
         default:
            return state
 

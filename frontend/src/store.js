@@ -5,7 +5,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import {productListReducer,productDetailsReducer,productDeleteReducer, productCreateReducer,productUpdateReducer} from './reducer/productReducers.js'
 import {cartReducer} from './reducer/cartReducers.js'
 import {userLoginReducer, userRegisterReducer,userDetailsReducer,userUpdateProfileReducer,userUpdateReducer, userListReducer,userDeleteReducer} from './reducer/userReducers'
-import { orderCreateReducer,orderDetailsReducer,orderListMyReducer,orderPayReducer } from './reducer/orderReducers.js'
+import { orderCreateReducer,orderDeliveredReducer,orderDetailsReducer,orderListMyReducer,orderListReducer,orderPayReducer } from './reducer/orderReducers.js'
 
 const reducer = combineReducers({
     productList: productListReducer,
@@ -24,7 +24,11 @@ const reducer = combineReducers({
     userUpdate: userUpdateReducer,
     productDelete: productDeleteReducer,
     productCreate: productCreateReducer,
-    productUpdate: productUpdateReducer
+    productUpdate: productUpdateReducer,
+    orderList: orderListReducer,
+    orderDelivered: orderDeliveredReducer,
+    
+
     //shippingAddress:
 })   //Accepts an Object as a reducer
 

@@ -16,6 +16,7 @@ import UserListScreen from './screens/UserListScreen'
 import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
+import OrderListScreen from './screens/OrderListScreen'
 const  App = () =>  {
   return (
     <Router>
@@ -32,10 +33,12 @@ const  App = () =>  {
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/product/:id' component={ProductScreen} />
           <Route path='/profile' component={ProfileScreen} />
+          <Route path='/cart/:id?' component={CartScreen} />
           <Route path='/admin/userlist' component={UserListScreen} />   {/*id? hace que un parametro sea opcional */}
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />   {/*id? hace que un parametro sea opcional */}
           <Route path='/admin/product/:id/edit' component={ProductEditScreen} />   {/*id? hace que un parametro sea opcional */}
           <Route path='/admin/productlist' component={ProductListScreen} />
+          <Route path='/admin/orderlist' component={OrderListScreen} />
         </Container>
       </main>
       <Footer />
