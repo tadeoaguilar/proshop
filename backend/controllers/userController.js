@@ -49,7 +49,7 @@ const authUser = asyncHandler(async(req,res) => {
 
     const user = await User.findOne({email})
     if (user && (await user.matchPassword(password))){
-        console.log('test')
+        
         res.json({
             _id: user._id,
             name: user.name,
@@ -151,7 +151,7 @@ const getUsers = asyncHandler(async(req,res) => {
 // @access Private/Admin
 const deleteUser = asyncHandler(async(req,res) => {
 
-   console.log('Delete test')
+   
     const user = await User.findById(req.params.id)
 
     if (user) {

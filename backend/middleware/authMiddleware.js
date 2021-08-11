@@ -7,7 +7,7 @@ const protect = expressAsyncHandler(async (req,res,next) => {
     let token 
     
    // console.log(req.headers.authorization)
-    
+   
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
        
        try {
@@ -17,6 +17,7 @@ const protect = expressAsyncHandler(async (req,res,next) => {
 
            //as it is middleware, it is assding .user to the request that can be accessed by any route , I am excluding the password
            req.user = await User.findById(decoded.id).select('-password')
+         
            next()
        } catch (error) {
            res.status(401)

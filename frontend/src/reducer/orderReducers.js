@@ -117,9 +117,9 @@ export const orderDeliveredReducer = ( state = {} , action) =>{
                 return {
                     loading: false,
                     success:true,
-                    
                  
                 }
+
         case ORDER_DELIVERED_FAIL:
                 return {
                     loading: false,
@@ -127,7 +127,6 @@ export const orderDeliveredReducer = ( state = {} , action) =>{
                     error: action.payload
                 }
         case ORDER_DELIVERED_RESET:
-            
             return {}
         default:
            return state

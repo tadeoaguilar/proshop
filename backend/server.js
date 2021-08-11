@@ -8,15 +8,21 @@ import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import {notFound, errorHandler} from './middleware/errorMiddleware.js'
 import uploadRoutes from './routes/uploadRoutes.js'
-const app =express()
-
+import morgan from 'morgan'
 dotenv.config()
+const app =express()
+if(process.env.NODE_ENV === 'development') {
+//    console.log('using morgan')
+  //  console.log(process.env.NODE_ENV)
+    app.use(morgan('dev'))
+}
+
 connectDB()
 app.use(express.json()) //to read JSON from body
 app.use((req,res,next) => {
-   // console.log("Middleware example")
-    console.log(req.originalUrl)
-    console.log(req.method)
+    console.log("Middleware example")
+    //console.log(req.originalUrl)
+    //console.log(req.method)
     next()
 })
 app.get('/',(req,res)   => {

@@ -1,10 +1,9 @@
-import React, { useState,useEffect } from 'react'
-import { Row,Col,ListGroup,Image,Card, Button, ListGroupItem } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Row,Col,ListGroup,Image,Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import FormContainer from '../components/FormContainer'
+
 import CheckoutSteps from '../components/CheckoutSteps'
-import { saveShippingAddress } from '../actions/cartActions'
-import { cartReducer } from '../reducer/cartReducers'
+
 import Message from '../components/Message'
 import { Link } from 'react-router-dom'
 import {createOrder} from '../actions/orderActions'
@@ -44,7 +43,7 @@ const PlaceOrderScreen = ({history}) => {
             history.push(`/orders/${order._id}`)
             // eslint-disable-next-line
         }
-    },[history,success])
+    },[history,success,order])
     return (
             <>
                 

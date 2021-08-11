@@ -7,7 +7,7 @@ import {useDispatch,useSelector} from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
-import {listProducts,deleteProduct,createProduct} from '../actions/productsActions'
+import {deleteProduct,createProduct} from '../actions/productsActions'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 
 const ProductListScreen = ({history}) => {
@@ -47,7 +47,7 @@ const ProductListScreen = ({history}) => {
         }
         
 
-    },[dispatch,history,userInfo,successDelete,successCreate])
+    },[dispatch,history,userInfo,successDelete,successCreate,createdProduct])
 
     const deleteHandler = (id) =>{
         if(window.confirm('Are you sure !')){
